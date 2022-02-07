@@ -2,6 +2,7 @@
   <v-container class="mt-16" fluid>
 
     <!--  Alertas  -->
+    <FailedPopUp v-if="alertFail"></FailedPopUp>
     <v-snackbar v-model="alertSuccess" color="success" timeout="-1">
       Exito.
       <template v-slot:action="{ attrs }">
@@ -10,20 +11,6 @@
             text
             v-bind="attrs"
             @click="alertSuccess = false"
-        >
-          <v-icon>mdi-checkbox-marked-circle</v-icon>
-        </v-btn>
-      </template>
-    </v-snackbar>
-
-    <v-snackbar v-model="alertFail" color="red accent-2" timeout="-1">
-      Fallo.
-      <template v-slot:action="{ attrs }">
-        <v-btn
-            color="white"
-            text
-            v-bind="attrs"
-            @click="alertFail = false"
         >
           <v-icon>mdi-checkbox-marked-circle</v-icon>
         </v-btn>
@@ -156,10 +143,12 @@
 import axios from "axios";
 import SingleContract from "@/components/SingleContract";
 import Comparator from "@/components/Comparator";
+import FailedPopUp from "@/components/FailedPopUp";
 
 export default {
   name: "Checker",
   components: {
+    FailedPopUp,
     Comparator,
     SingleContract
   },
@@ -181,6 +170,7 @@ export default {
     compareData: {},
     alertSuccess: false,
     alertFail: false,
+    alertFailMessage: '',
   }),
   methods: {
     readExcel(file) {
@@ -235,7 +225,7 @@ export default {
             obj.loading = false;
           })
           .catch(error => {
-            console.log(error);
+            obj.alertFailMessage = error.data['message'];
             obj.alertFail = true;
             obj.loading = false;
           })
