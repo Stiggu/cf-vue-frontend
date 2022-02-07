@@ -42,9 +42,6 @@
               :rules="nameRules"
               required
           >
-            <template #label>
-              Nombre<span class="red--text"><strong> *</strong></span>
-            </template>
           </v-text-field>
         </v-col>
 
