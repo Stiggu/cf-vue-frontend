@@ -225,7 +225,8 @@ export default {
             obj.loading = false;
           })
           .catch(error => {
-            obj.alertFailMessage = error.data['message'];
+            console.log(error);
+            obj.alertFailMessage = error['message'];
             obj.alertFail = true;
             obj.loading = false;
           })
