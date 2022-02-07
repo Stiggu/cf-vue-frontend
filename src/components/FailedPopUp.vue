@@ -1,6 +1,6 @@
 <template>
   <v-snackbar v-model="alertFail" color="red accent-2" timeout="-1">
-    {{ message }}.
+    {{ message }}
     <template v-slot:action="{ attrs }">
       <v-btn
           color="white"
