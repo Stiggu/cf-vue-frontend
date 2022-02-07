@@ -117,6 +117,8 @@
                     color="success"
                     block
                     v-on:click="saveData('save/')"
+                    :loading="loading"
+                    :disabled="loading"
                 >
                   Guardar
                 </v-btn>
@@ -127,6 +129,8 @@
                     color="primary"
                     block
                     v-on:click="saveData('compare/')"
+                    :loading="loading"
+                    :disabled="loading"
                 >
                   Comparar
                 </v-btn>
@@ -162,6 +166,7 @@ export default {
     SingleContract
   },
   data: () => ({
+    loading: false,
     valid: true,
     name: '',
     menu: false,
