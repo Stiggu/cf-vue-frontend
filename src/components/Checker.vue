@@ -164,7 +164,7 @@ export default {
     ],
     fileRules: [
       v => !!v || 'Al menos un archivo es requerido',
-      v => (v.length > 0 && v.length <= 2) || 'Solo se pueden cargar de 1 a 2 archivos.'
+      // v => (v.length > 0 && v.length <= 2) || 'Solo se pueden cargar de 1 a 2 archivos.'
     ],
     viewData: {},
     compareData: {},
