@@ -2,7 +2,7 @@
   <v-container class="mt-16" fluid>
 
     <!--  Alertas  -->
-    <FailedPopUp v-if="alertFail"></FailedPopUp>
+    <FailedPopUp v-if="alertFail" :message="alertFailMessage"></FailedPopUp>
     <v-snackbar v-model="alertSuccess" color="success" timeout="-1">
       Exito.
       <template v-slot:action="{ attrs }">
