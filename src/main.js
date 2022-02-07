@@ -6,7 +6,7 @@ import vuetify from './plugins/vuetify'
 import store from './store'
 
 Vue.config.productionTip = false
-axios.defaults.baseURL ='http://127.0.0.1:8000/api/v1/'
+axios.defaults.baseURL ='https://stiggu.pythonanywhere.com/api/v1/'
 
 new Vue({
   router,
