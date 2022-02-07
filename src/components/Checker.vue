@@ -37,6 +37,7 @@
         <v-col cols="12" offset-sm="4" sm="4">
           <v-text-field
               v-model="name"
+              label="Nombre"
               hide-details="auto"
               prepend-icon="mdi-card-text-outline"
               :rules="nameRules"
@@ -203,6 +204,7 @@ export default {
         return
       }
 
+      this.loading = true;
       this.viewData = {};
       this.compareData = {};
       this.alertFail = false;
@@ -230,10 +232,12 @@ export default {
               console.log(obj.compareData)
             }
             obj.alertSuccess = true;
+            obj.loading = false;
           })
           .catch(error => {
             console.log(error);
             obj.alertFail = true;
+            obj.loading = false;
           })
     }
   }
